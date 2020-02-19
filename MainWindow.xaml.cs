@@ -24,11 +24,6 @@ namespace WpfApp1
 		List<Line> myLines = new List<Line>();
 		SolidColorBrush linecolor = new SolidColorBrush(Colors.Black);
 
-		public MainWindow()
-		{
-			InitializeComponent();
-		}
-
 		private void Canvas_1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 		{
 			Point p = Mouse.GetPosition(Canvas_1);
