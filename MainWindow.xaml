@@ -17,9 +17,9 @@
         </Grid.RowDefinitions>
         <TextBox Grid.Row="0" Height="25" IsEnabled="False" Name="txt" Margin="0,0,270,0" Grid.ColumnSpan="2"/>
         <Canvas Name="Canvas_1" MouseLeftButtonDown="Canvas_1_MouseLeftButtonDown" MouseRightButtonDown="Canvas_1_MouseRightButtonDown" Grid.Row="1" Background="LightGray" Margin="104,0,0,0" Grid.ColumnSpan="2" >
-            <ListBox Name="listBox" Height="397" Width="101" SelectionChanged="ListBox_SelectionChanged" Canvas.Left="-104" Canvas.Top="-1"/>
-            <Slider Name="slider" Canvas.Left="478" Canvas.Top="-22" Height="22" Width="210" ValueChanged="Slider_ValueChanged" Minimum="0" Maximum="70" SmallChange="5" LargeChange="10" />
-            <TextBox Name="TextScroll" Height="22" Canvas.Left="426" TextWrapping="Wrap" Text="0" Canvas.Top="-22" Width="40" TextChanged="TextBox_TextChanged"/>
+            <ListBox Name="listBox" Height="397" Width="101" SelectionMode="Single" Canvas.Left="-104" Canvas.Top="-1" SelectionChanged="ListBox_SelectionChanged"/>
+            <Slider Name="slider" Canvas.Left="478" Canvas.Top="-22" Height="22" Width="210" ValueChanged="Slider_ValueChanged" Minimum="30" Maximum="100" SmallChange="5" LargeChange="10" Value="50"/>
+            <TextBox Name="TextScroll" Height="22" Canvas.Left="426" TextWrapping="Wrap" Text="50" Canvas.Top="-22" Width="40" />
             <Button x:Name="ColorPalette" Content="C" Canvas.Left="658" Canvas.Top="364" Width="20" Click="Button_Click" />
         </Canvas>
     </Grid>

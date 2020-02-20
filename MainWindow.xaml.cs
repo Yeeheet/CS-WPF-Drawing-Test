@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace WpfApp1
 {
@@ -29,6 +30,12 @@ namespace WpfApp1
 			Point p = Mouse.GetPosition(Canvas_1);
 			//p.X += Canvas_1.;
 			//p.Y += Canvas_1.Height / 2;
+
+			if (p.X < 0 || p.Y < 0)
+			{
+				nb = 0;
+				return;
+			}
 
 			int precision = (int)slider.Value;
 
@@ -98,7 +105,6 @@ namespace WpfApp1
 				{
 					myLines[nbLines].X2 = p.X;
 					myLines[nbLines].Y2 = p.Y;
-
 				}
 				
 				Canvas_1.Children.Add(myLines[nbLines]);
@@ -118,6 +124,7 @@ namespace WpfApp1
 					Canvas_1.Children.Remove(myLines[i]);
 					listBox.Items.RemoveAt(i);
 					myLines.RemoveAt(i);
+					listBox.SelectedItem = 0;
 				}
 			}
 		}
@@ -144,19 +151,24 @@ namespace WpfApp1
 			return -1;
 		}
 
-		private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		private async void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
+			Brush temp = new SolidColorBrush();
+			temp = myLines[listBox.SelectedIndex].Stroke;
 
+			myLines[listBox.SelectedIndex].Stroke = new SolidColorBrush(Colors.Red);
+			await Task.Delay(500);
+			myLines[listBox.SelectedIndex].Stroke = temp;
+
+			Line l = myLines[listBox.SelectedIndex];
+
+			new LineProperties(ref l, listBox.SelectedIndex).Show();
 		}
 
 		private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
 		{
-			TextScroll.Text = "" + slider.Value;
-		}
-
-		private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-		{
-
+			if(slider.IsLoaded)
+				TextScroll.Text = "" + slider.Value;
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e)

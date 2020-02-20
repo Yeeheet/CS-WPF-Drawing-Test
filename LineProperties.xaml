@@ -1,0 +1,17 @@
+﻿<Window x:Class="WpfApp1.LineProperties"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Line Properties" Height="300" Width="300">
+    <Grid>
+        <TextBox x:Name="NameTxt" IsReadOnly="True" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="97,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="75" />
+        <TextBox x:Name="P1Txt" IsReadOnly="True" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="77,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="P2Txt" IsReadOnly="True" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="77,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button  x:Name="Button" Content="Change Color" HorizontalAlignment="Left" Margin="97,217,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button  x:Name="CloseBtn" Content="X" HorizontalAlignment="Left" Margin="262,239,0,0" VerticalAlignment="Top" Width="20" Click="CloseBtn_Click" Background="PaleVioletRed"/>
+
+    </Grid>
+</Window>
